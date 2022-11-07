@@ -48,7 +48,7 @@ Open an issue wiwh output from the `audit2allow` command.
 
 From time to time, SELinux spills out a cryptic error. To generate CLI source from te/pp file, do:
 
-    cat foreman.pp | /usr/libexec/selinux/hll/pp > /tmp/foreman.cil
+    cat gotosocial.pp | /usr/libexec/selinux/hll/pp > /tmp/gotosocial.cil
 
 ## License
 
