@@ -1,8 +1,10 @@
 # GoToSocial SELinux poclicy
 
-SELinux policies for GoToSocial
+SELinux policicy for
+[GoToSocial](https://github.com/superseriousbusiness/gotosocial), an
+ActivityPub social network server, written in Golang.
 
-## Assumptions
+## Assumptions
 
 The policy assumes that:
 
@@ -16,10 +18,12 @@ The policy assumes that:
 To locally compile and load the policy:
 
     make -f /usr/share/selinux/devel/Makefile load
-    /usr/sbin/semodule -i gotosocial.pp
+
+Files need to be relabelled, you only need to do this once.
+
     ./gotosocial-selinux-relabel
 
-Then restart the service
+Then restart the gotosocial service. You are all set!
 
 ## Changing PostgreSQL port
 
@@ -30,6 +34,15 @@ Then restart the service
 Run this command (no restart of anything is needed):
 
     semanage port -a -t http_port_t -p tcp 8085
+
+## Troubleshooting
+
+When you encounter errors, and you will as the software will get more features, do this:
+
+    sepolgen-ifgen
+    audit2allow -larR
+
+Open an issue wiwh output from the `audit2allow` command.
 
 ## Debugging CIL
 
