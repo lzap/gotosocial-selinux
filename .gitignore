@@ -1,0 +1,6 @@
+/TAGS
+/tmp/
+/local-tmp/
+*.pp*
+*.pod
+*.8

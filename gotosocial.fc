@@ -1,0 +1,24 @@
+# vim: sw=4:ts=4:et
+
+# Executables
+/usr/bin/gotosocial                                --  gen_context(system_u:object_r:gotosocial_exec_t,s0)
+/usr/local/bin/gotosocial                          --  gen_context(system_u:object_r:gotosocial_exec_t,s0)
+
+# Configuration
+/etc/gotosocial(/.*)?                                  gen_context(system_u:object_r:gotosocial_config_t,s0)
+/usr/local/etc/gotosocial(/.*)?                        gen_context(system_u:object_r:gotosocial_config_t,s0)
+
+# Data
+/var/lib/gotosocial(/.*)?                              gen_context(system_u:object_r:gotosocial_var_t,s0)
+/gotosocial(/.*)?                                      gen_context(system_u:object_r:gotosocial_var_t,s0)
+
+# Logs
+/var/log/gotosocial(/.*)?                              gen_context(system_u:object_r:gotosocial_log_t,s0)
+
+# Systemd units
+/usr/lib/systemd/system/gotosocial.*               --  gen_context(system_u:object_r:gotosocial_unit_file_t,s0)
+/etc/systemd/system/gotosocial.*                   --  gen_context(system_u:object_r:gotosocial_unit_file_t,s0)
+
+# Run support
+/var/run/gotosocial(/.*)?                              gen_context(system_u:object_r:gotosocial_var_run_t,s0)
+/var/run/gotosocial\.sock                              gen_context(system_u:object_r:gotosocial_var_run_t,s0)

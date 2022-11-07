@@ -1,0 +1,14 @@
+#!/bin/bash
+
+/sbin/restorecon -ri $* /usr/bin/gotosocial \
+	/usr/local/bin/gotosocial \
+	/etc/gotosocial \
+	/usr/local/etc/gotosocial \
+	/var/lib/gotosocial \
+	/gotosocial \
+	/var/log/gotosocial \
+	/usr/lib/systemd/system/gotosocial* \
+	/etc/systemd/system/gotosocial* \
+	/var/run/gotosocial*
+
+exit 0
